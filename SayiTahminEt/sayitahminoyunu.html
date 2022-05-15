@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8"> 
+    <title> GUESS THE NUMBER </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<header>
+    <button onclick="again()" name="start"> Start Again </button> <br>
+    <div class="a"> Guess the Number ! </div>  <br>
+    <div class="box"> ? </div>
+</header>
+    
+<main>
+<section class="left">
+<br> <br> <br>
+<input type="number" class="guess"> <br> <br>
+<button onclick="changee()" class="control"> Check</button>
+</section>
+
+
+<section class="right"> 
+<br> <br> <br> <br>
+Score : <div class="score"> 20 </div>  
+</section>
+</main>
+
+
+
+
+<script>
+
+var rnumber = Math.floor(Math.random() * 10) + 1;
+var score = 20; 
+function changee(){
+ if(document.querySelector(".guess").value == rnumber){
+    document.querySelector("header").style.backgroundColor = "green";
+    document.querySelector("main").style.backgroundColor = "green";
+    document.querySelector(".box").innerHTML = rnumber ;
+    document.querySelector(".a").innerHTML = "CORRECT" ;
+ }
+ else{
+  score-- ;
+  document.querySelector(".score").innerHTML = score ;
+ }
+ if(score==10){
+   alert("10 denemedede bilirsin aw");
+   document.querySelector("header").style.backgroundColor = "red";
+   document.querySelector("main").style.backgroundColor = "red";
+ }
+}
+
+function again(){
+  document.querySelector("header").style.backgroundColor = "rgb(6, 21, 30)";
+  document.querySelector("main").style.backgroundColor = "rgb(139, 24, 77)";
+  document.querySelector(".box").innerHTML = "?" ;
+  document.querySelector(".score").innerHTML = "20" ;
+  document.querySelector(".guess").value = "";
+}
+
+</script>
+
+
+
+
+
+</body>
+
+
+<html>
